@@ -1,5 +1,6 @@
 {
   "name": "Service-app",
+  "homepage": "https://Daveram1714.github.io/Service-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.7",
     "framer-motion": "^11.5.4",
+    "gh-pages": "^6.2.0",
     "nodemon": "^3.1.7",
     "react": "^18.3.1",
     "react-calendar": "^5.0.0",
@@ -19,6 +21,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
