@@ -1,22 +1,13 @@
-import { bike } from "../data.js";
 import { useState } from "react";
 import Container from "./Container.jsx";
 import Navbar from "../components/Navbar.jsx";
 import Body from "./Body.jsx";
 function Header()
 {
-    const [startIndex, setStartIndex] = useState(0);
+    const [ setStartIndex] = useState(0);
     const itemsPerPage = 1;
   
-    const scrollLeft = () => {
-      setStartIndex((prevIndex) => Math.max(prevIndex - itemsPerPage, 0));
-    };
-  
-    const scrollRight = () => {
-      setStartIndex((prevIndex) =>
-        Math.min(prevIndex + itemsPerPage, bike.length - itemsPerPage)
-      );
-    };
+    
   
     return(<div className="">
       

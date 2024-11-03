@@ -1,26 +1,13 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Namecontext } from '../App';
 import Navbar from './Navbar';
 
 function AdminDashboard() {
-  const { selectedUser, userList } = useContext(Namecontext);
   const [bookings, setBookings] = useState([]);
-  const [isAdmin, setIsAdmin] = useState(true);
 
-  useEffect(() => {
-    const fetchBookings = async () => {
-      try {
-        const response = await axios.get('http://localhost:3001/User/booking/allUser');
-        console.log("Response from booking API:", response.data);
-        setBookings(response.data);
-      } catch (error) {
-        console.error('Error fetching bookings:', error);
-      }
-    };
+  
 
-    fetchBookings();
-  }, []);
+   
 
   const handleStatusChange = async (e, index) => {
     const updatedStatus = e.target.value;
@@ -122,7 +109,7 @@ function AdminDashboard() {
                       <td className="border px-4 py-2">{booking.vehicleModel}</td>
                       <td className="border px-4 py-2">{booking.date}</td>
                       <td className="border px-4 py-2">
-                        {isAdmin ? (
+                        {/* {isAdmin ? (
                           <select
                             value={booking.status}
                             onChange={(e) => handleStatusChange(e, index)}
@@ -134,7 +121,7 @@ function AdminDashboard() {
                           </select>
                         ) : (
                           <span>{booking.status}</span>
-                        )}
+                        )} */}
                       </td>
                     </tr>
                   ))

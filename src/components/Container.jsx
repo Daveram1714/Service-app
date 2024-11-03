@@ -1,26 +1,22 @@
-import React, { useState, useContext } from 'react';
+import React, { useState,  useEffect } from 'react';
 import { data1 } from '../data.js';
-import { Namecontext } from '../App';
 import axios from 'axios';
 
 function Container() {
   const [showPopup, setShowPopup] = useState(false);
-  const { selectedUser, setSelectedUser, userList, setUserList } = useContext(Namecontext);
-  const [isEditing, setIsEditing] = useState(false);
+  const [ setIsEditing] = useState(false);
   const [date, setDate] = useState('');
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [ setUserList] = useState([]);
 
   const handleClick = (item) => {
-    setSelectedUser(item);
     setShowPopup(true);
     setIsEditing(true);
+    setSelectedUser(item);
   };
 
   const handleClosePopup = () => {
     setShowPopup(false);
-  };
-
-  const handleInputChange = (e) => {
-    setSelectedUser({ ...selectedUser, [e.target.name]: e.target.value });
   };
 
   const handleDateChange = (e) => {
@@ -31,19 +27,13 @@ function Container() {
     const userData = {
       address: selectedUser.address,
       vehicleModel: selectedUser.vehicleModel,
-      emailId: userList.emailId,
-      password: selectedUser.password,
-      userId: userList._id,
-      desc: selectedUser.desc,
-      price: selectedUser.price,
-      userName: userList.userName,
-      date: date, 
+      date: date
     };
 
     axios.post('http://localhost:3001/User/booking', userData)
       .then((response) => {
         console.log('User saved successfully:', response.data);
-        setUserList((prevList) => [{ ...prevList }, response.data]);
+        setUserList((prevList) => [...prevList, response.data]);
         setSelectedUser(response.data);
         setShowPopup(false);
       })
@@ -53,7 +43,7 @@ function Container() {
   };
 
   const handleDeleteUser = (userId) => {
-    axios.delete('http://localhost:3001/User/DeleteOrder/${userId}')
+    axios.delete(`http://localhost:3001/User/DeleteOrder/${userId}`)
       .then((response) => {
         console.log('User deleted successfully:', response.data);
         setUserList((prevList) => {
@@ -66,6 +56,20 @@ function Container() {
         console.error('Error deleting user:', error);
       });
   };
+
+  const handleInputChange = (e) => {
+    setSelectedUser((prevUser) => ({ ...prevUser, [e.target.name]: e.target.value }));
+  };
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/User')
+      .then((response) => {
+        setUserList(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching users:', error);
+      });
+  }, []);
 
   return (
     <div className='bg-white'>
@@ -160,4 +164,4 @@ function Container() {
   );
 }
 
-export default Container;
+export default Container;
