@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/Service-app/static/css/main.48a3e281.css",
+    "main.js": "/Service-app/static/js/main.517a7e70.js",
+    "static/media/close-up-man-old-motorcycle.jpg": "/Service-app/static/media/close-up-man-old-motorcycle.88936980911a53327b7c.jpg",
+    "static/media/water-wash.jpg": "/Service-app/static/media/water-wash.671f4e0e7e1bfcca790f.jpg",
+    "static/media/BMW2.png": "/Service-app/static/media/BMW2.adb67d441a4dc59362fd.png",
+    "static/media/BMW3.png": "/Service-app/static/media/BMW3.5310782ceab2d67749c8.png",
+    "static/media/General-service.jpg": "/Service-app/static/media/General-service.6968a9ffc089b135c62e.jpg",
+    "static/media/Oil-change.jpg": "/Service-app/static/media/Oil-change.d844f4b119b1c5cbc037.jpg",
+    "static/media/Engine-work.jpg": "/Service-app/static/media/Engine-work.55a7fddef00ec4d44cce.jpg",
+    "static/media/bike2.png": "/Service-app/static/media/bike2.9bb281fc03fbbda2303b.png",
+    "index.html": "/Service-app/index.html",
+    "main.48a3e281.css.map": "/Service-app/static/css/main.48a3e281.css.map",
+    "main.517a7e70.js.map": "/Service-app/static/js/main.517a7e70.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.48a3e281.css",
+    "static/js/main.517a7e70.js"
+  ]
+}
